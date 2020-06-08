@@ -15,6 +15,7 @@ before_script:
 script:
     - go build serve.go
     - ./serve
+    - curl http://localhost:8090/hello
     
 
 notifications:
