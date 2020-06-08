@@ -7,15 +7,14 @@ go:
 
 install: 
     - echo "build serve"
-    - ./serve
-    - pwd
-    - sh build    
 
 before_script:
     - go get -u golang.org/x/lint/golint
 
 
 script:
+    - go build serve.go
+    ./serve
 
 notifications:
     email: false
