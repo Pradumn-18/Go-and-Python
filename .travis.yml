@@ -14,7 +14,7 @@ before_script:
 
 script:
     - go build serve.go
-    ./serve
+    - ./serve
     
 
 notifications:
