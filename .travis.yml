@@ -7,7 +7,7 @@ go:
 
 install: 
     - echo "build serve"
-    - cd ../serve
+    - ./serve
     - pwd
     - sh build    
 
