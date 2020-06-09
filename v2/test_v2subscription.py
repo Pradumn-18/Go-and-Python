@@ -11,7 +11,7 @@ import datav2
 
 
 # change it by broker ip and port
-brokerIp="http://127.0.0.1:8070"
+brokerIp="http://180.179.214.211:8070"
 
 
 # testCase 1
@@ -25,8 +25,7 @@ def test_getSubscription1():
         r=requests.post(url,data=json.dumps(datav2.subdata1),headers=headers)
         print(r.status_code)
         print(r.content)
-        time.sleep()
-
+       
         #subsciption request in v2 format
         url=brokerIp+"/v2/subscriptions"
         headers= {'Content-Type': 'application/json'}
@@ -38,18 +37,17 @@ def test_getSubscription1():
         resp=resp['subscribeResponse']
         sid=resp['subscriptionId']
         print(sid)
-        time.sleep()
 
         #update to trigger notification
         url=brokerIp+"/ngsi10/updateContext"
         r=requests.post(url,data=json.dumps(datav2.subdata3),headers=headers)
         print(r.status_code)
         print(r.content)
-        time.sleep()
+        
         #validation based on subscriptionId
-        #url="http://localhost:8888/validateNotification"
-        #r=requests.post(url,json={"subscriptionId" : sid})
-        #print(r.content)
+        url="http://localhost:8888/validateNotification"
+        r=requests.post(url,json={"subscriptionId" : sid})
+        print(r.content)
         assert r.status_code == 200
 
 
@@ -64,8 +62,7 @@ def test_getsubscription2():
         r=requests.post(url,data=json.dumps(datav2.subdata4),headers=headers)
         print(r.status_code)
         print(r.content)
-        time.sleep()
-
+        
         #subsciption request in v2 format
         url=brokerIp+"/v2/subscriptions"
         headers= {'Content-Type': 'application/json','User-Agent':'lightweight-iot-broker'}
@@ -77,17 +74,17 @@ def test_getsubscription2():
         resp=resp['subscribeResponse']
         sid=resp['subscriptionId']
         print(sid)
-        time.sleep()
+        
         #update to trigger notification
         url=brokerIp+"/ngsi10/updateContext"
         r=requests.post(url,data=json.dumps(datav2.subdata6),headers=headers)
         print(r.status_code)
         print(r.content)
-        time.sleep()
+        
         #vaidation based on subscriptionId
-        #url="http://localhost:8888/validateNotification"
-        #r=requests.post(url,json={"subscriptionId" : sid})
-        #print(r.content)
+        url="http://localhost:8888/validateNotification"
+        r=requests.post(url,json={"subscriptionId" : sid})
+        print(r.content)
         assert r.status_code == 200
 
 # testCase 3
@@ -101,8 +98,7 @@ def test_getsubscription3():
         r=requests.post(url,data=json.dumps(datav2.subdata7),headers=headers)
         print(r.status_code)
         print(r.content)
-        time.sleep()
-
+        
         #subsciption request in v2 format
         url=brokerIp+"/v2/subscriptions"
         headers= {'Content-Type': 'application/json','User-Agent':'lightweight-iot-broker'}
@@ -114,14 +110,13 @@ def test_getsubscription3():
         resp=resp['subscribeResponse']
         sid=resp['subscriptionId']
         print(sid)
-        time.sleep()
-
+        
         #update to trigger Notification
         url=brokerIp+"/ngsi10/updateContext"
         r=requests.post(url,data=json.dumps(datav2.subdata8),headers=headers)
         print(r.status_code)
         print(r.content)
-        time.sleep()
+        
         
         #delete the subscription
         url=brokerIp+"/v2/subscription/"+sid
@@ -129,8 +124,7 @@ def test_getsubscription3():
         print(r.status_code)
         print(r.content)
         print("The subscriptionId "+sid+" is deleted successfully")
-        time.sleep()
-        
+                
         #validate based on get subscriptionId
         url=brokerIp+"/v2/subscription/"+sid
         r=requests.get(url)
