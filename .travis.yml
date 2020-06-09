@@ -30,6 +30,7 @@ script:
     - sudo docker-compose up -d
     - sudo docker ps -a
     - sudo lsof -i:8070
+    - sudo lsof -i -P -n | grep LISTEN
       
 after_script:
     - echo "Test Automated"
