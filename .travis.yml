@@ -15,7 +15,7 @@ install:
     - pip -V
     - sudo pip install --upgrade pip
     - pip install -U pytest
-    - pip install -U openSSL
+    - pip install -U pyOpenSSL
     
     
 before_script:
