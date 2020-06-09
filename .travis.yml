@@ -24,13 +24,15 @@ before_script:
 script:
     - go build serve.go
     - echo "build successful"
-    - sudo docker run fogflow/discovery:3.0 fogflow/broker:3.0
+    - sudo docker run fogflow/discovery:3.0 
+    - sudo docker fogflow/broker:3.0
     - sudo docker ps -a
     - cd v2
     - pytest -s -v 
     
 after_script:
-    - sudo docker stop fogflow/discovery:3.0 fogflow/broker:3.0
+    - sudo docker stop fogflow/discovery:3.0 
+    - sudo docker stop fogflow/broker:3.0
 
 notifications:
     email: false
