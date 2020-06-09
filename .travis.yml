@@ -30,10 +30,7 @@ script:
     - pytest -s -v 
     
 after_script:
-    - docker stop 9beeba249f3e
-    - docker stop rabbitmq:3
-    - docker stop fogflow/discovery:3.0
-    - docker stop fogflow/broker:3.0
+    - sudo docker stop fogflow/discovery:3.0 fogflow/broker:3.0
 
 notifications:
     email: false
