@@ -26,6 +26,7 @@ def test_getSubscription1():
         r=requests.post(url,data=json.dumps(datav2.subdata1),headers=headers)
         print(r.status_code)
         print(r.content)
+        time.sleep()
 
         #subsciption request in v2 format
         url=brokerIp+"/v2/subscriptions"
@@ -38,13 +39,14 @@ def test_getSubscription1():
         resp=resp['subscribeResponse']
         sid=resp['subscriptionId']
         print(sid)
+        time.sleep()
 
         #update to trigger notification
         url=brokerIp+"/ngsi10/updateContext"
         r=requests.post(url,data=json.dumps(datav2.subdata3),headers=headers)
         print(r.status_code)
         print(r.content)
-
+        time.sleep()
         #validation based on subscriptionId
         #url="http://localhost:8888/validateNotification"
         #r=requests.post(url,json={"subscriptionId" : sid})
@@ -63,6 +65,7 @@ def test_getsubscription2():
         r=requests.post(url,data=json.dumps(datav2.subdata4),headers=headers)
         print(r.status_code)
         print(r.content)
+        time.sleep()
 
         #subsciption request in v2 format
         url=brokerIp+"/v2/subscriptions"
@@ -75,13 +78,13 @@ def test_getsubscription2():
         resp=resp['subscribeResponse']
         sid=resp['subscriptionId']
         print(sid)
-
+        time.sleep()
         #update to trigger notification
         url=brokerIp+"/ngsi10/updateContext"
         r=requests.post(url,data=json.dumps(datav2.subdata6),headers=headers)
         print(r.status_code)
         print(r.content)
-
+        time.sleep()
         #vaidation based on subscriptionId
         #url="http://localhost:8888/validateNotification"
         #r=requests.post(url,json={"subscriptionId" : sid})
@@ -99,6 +102,7 @@ def test_getsubscription3():
         r=requests.post(url,data=json.dumps(datav2.subdata7),headers=headers)
         print(r.status_code)
         print(r.content)
+        time.sleep()
 
         #subsciption request in v2 format
         url=brokerIp+"/v2/subscriptions"
@@ -111,20 +115,23 @@ def test_getsubscription3():
         resp=resp['subscribeResponse']
         sid=resp['subscriptionId']
         print(sid)
+        time.sleep()
 
         #update to trigger Notification
         url=brokerIp+"/ngsi10/updateContext"
         r=requests.post(url,data=json.dumps(datav2.subdata8),headers=headers)
         print(r.status_code)
         print(r.content)
-
+        time.sleep()
+        
         #delete the subscription
         url=brokerIp+"/v2/subscription/"+sid
         r=requests.delete(url)
         print(r.status_code)
         print(r.content)
         print("The subscriptionId "+sid+" is deleted successfully")
-
+        time.sleep()
+        
         #validate based on get subscriptionId
         url=brokerIp+"/v2/subscription/"+sid
         r=requests.get(url)
