@@ -13,7 +13,7 @@ install:
     - sudo apt-get update
     - sudo apt-get install python-pip
     - pip -V
-    - python2 pip install --upgrade pip
+    - sudo pip install --upgrade pip
     - pip install -U pytest
     
 before_script:
