@@ -7,7 +7,7 @@ import time
 import pytest
 import sys
 
-e_url="http://localhost:8090"
+e_url="http://180.179.214.211:8090"
 
 #test Case 1
 '''
