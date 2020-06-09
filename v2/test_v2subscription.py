@@ -8,11 +8,10 @@ import requests
 import time
 import pytest
 import datav2
-import sys
 
 
 # change it by broker ip and port
-brokerIp="http://127.0.0.1:8070"
+brokerIp="http://localhost:8070"
 
 
 # testCase 1
