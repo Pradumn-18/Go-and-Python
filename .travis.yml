@@ -29,9 +29,8 @@ script:
     - echo "build successful"
     - sudo docker-compose up -d
     - sudo docker ps -a
-    - cd v2
-    - pytest -s -v 
-    
+    - sudo losf -i:8070
+      
 after_script:
     - echo "Test Automated"
 
