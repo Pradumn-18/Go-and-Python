@@ -32,7 +32,9 @@ script:
     - sudo lsof -i:8070
     - sudo lsof -i -P -n | grep LISTEN
     - ip addr show
-    - hostname -I
+    - hostname 
+    - telent 127.0.0.1 8070
+    - curl http://127.0.0.1:8070/v2/entities
       
 after_script:
     - echo "Test Automated"
