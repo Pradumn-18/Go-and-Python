@@ -18,8 +18,7 @@ install:
 before_script:
     - go get -u golang.org/x/lint/golint
     - go build serve.go
-    - ./serve
-        
+       
 script:
     - cd script
     - pytest -v -s 
