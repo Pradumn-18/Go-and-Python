@@ -46,9 +46,9 @@ def test_getSubscription1():
         print(r.content)
 
         #validation based on subscriptionId
-        url="http://localhost:8888/validateNotification"
-        r=requests.post(url,json={"subscriptionId" : sid})
-        print(r.content)
+        #url="http://localhost:8888/validateNotification"
+        #r=requests.post(url,json={"subscriptionId" : sid})
+        #print(r.content)
         assert r.status_code == 200
 
 
@@ -83,9 +83,9 @@ def test_getsubscription2():
         print(r.content)
 
         #vaidation based on subscriptionId
-        url="http://localhost:8888/validateNotification"
-        r=requests.post(url,json={"subscriptionId" : sid})
-        print(r.content)
+        #url="http://localhost:8888/validateNotification"
+        #r=requests.post(url,json={"subscriptionId" : sid})
+        #print(r.content)
         assert r.status_code == 200
 
 # testCase 3
