@@ -7,9 +7,17 @@ go:
 
 service:
     - docker
-    
+envs: 
+    global:
+    -  DOCKER_VERSION="1.9.1-0~trusty"
+
+before_install:
+    -sudo apt-get update
+    - sudo apt-get remove docker-engine -yq
+    - sudo apt-get install docker-engine=$DOCKER_VERSION -yq --no-install-suggests --no-install-recommends --force-yes -o Dpkg::Options::="--force-confnew"
 install: 
     - echo "build serve"
+    - sudo docker --version
     - sudo apt-get update
     - sudo apt-get install python-pip
     - pip -V
@@ -29,12 +37,8 @@ script:
     - echo "build successful"
     - sudo docker-compose up -d
     - sudo docker ps -a
-    - sudo lsof -i:8070
-    - sudo lsof -i -P -n | grep LISTEN
-    - ip addr show
-    - hostname -I 
-    - curl http://localhost:8070/v2/entities
-    - netstat -tapnl | grep 8070  
+    - cd v2
+    - pytest -v -s 
     
 after_script:
     
