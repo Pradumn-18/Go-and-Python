@@ -8,13 +8,8 @@ go:
 service:
     - docker
 
-before_install:
-    - sudo apt-get update
-    - sudo apt-get remove docker-engine -yq
-    - sudo apt-get install docker-engine=1.9.1-0~trusty -yq --no-install-suggests --no-install-recommends --force-yes -o Dpkg::Options::="--force-confnew"
 install: 
     - echo "build serve"
-    - sudo docker --version
     - sudo apt-get update
     - sudo apt-get install python-pip
     - pip -V
@@ -23,16 +18,15 @@ install:
     
 before_script:
     - go get -u golang.org/x/lint/golint
-    - wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/docker-compose.yml
     - wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/config.json
-    - wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/nginx.conf
-    - wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/metricbeat.docker.yml
-    - sudo docker-compose pull 
-
+    - sudo docker pull fogflow/discovery:3.0
+    - sudo docker pull fogflow/broker:3.0
+    - sudo docker run -p 127.0.0.1:8090:8090 fogflow/discovery
+    - sudo docker run -p 127.0.0.1:8090:8090 fogflow/broker 
+    
 script:
     - go build serve.go
     - echo "build successful"
-    - sudo docker-compose up -d
     - sudo docker ps -a
     - cd v2
     - pytest -v -s 
