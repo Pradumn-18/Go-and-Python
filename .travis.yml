@@ -32,12 +32,11 @@ script:
     - sudo lsof -i:8070
     - sudo lsof -i -P -n | grep LISTEN
     - ip addr show
-    - hostname 
-    - telnet 0.0.0.0 8070
-    - curl http://0.0.0.0:8070/v2/entities
-      
+    - -hostname 
+    - curl http://localhost:8070/v2/entities
+    - netstat -tapnl | grep 443  
+    
 after_script:
-    - echo "Test Automated"
-
+    
 notifications:
     email: false
