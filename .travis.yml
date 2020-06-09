@@ -9,7 +9,7 @@ service:
     - docker
 envs: 
     global:
-    -  DOCKER_VERSION="1.9.1"
+    -  DOCKER_VERSION="18.06.1~ce~3-0~ubuntu"
 
 before_install:
     - sudo apt-get update
