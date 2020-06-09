@@ -25,7 +25,7 @@ script:
     - go build serve.go
     - echo "build successful"
     - sudo docker run fogflow/discovery:3.0 
-    - sudo docker fogflow/broker:3.0
+    - sudo docker run fogflow/broker:3.0
     - sudo docker ps -a
     - cd v2
     - pytest -s -v 
