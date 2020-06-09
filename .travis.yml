@@ -32,9 +32,9 @@ script:
     - sudo lsof -i:8070
     - sudo lsof -i -P -n | grep LISTEN
     - ip addr show
-    - -hostname 
+    - hostname -I 
     - curl http://localhost:8070/v2/entities
-    - netstat -tapnl | grep 443  
+    - netstat -tapnl | grep 8070  
     
 after_script:
     
