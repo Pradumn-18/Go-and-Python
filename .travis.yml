@@ -13,7 +13,8 @@ install:
     - sudo apt-get update
     - sudo apt-get install python-pip
     - pip -V
-    - pip install pytest
+    - pip install --upgrade pip
+    - pip install -U pytest
     
 before_script:
     - go get -u golang.org/x/lint/golint
