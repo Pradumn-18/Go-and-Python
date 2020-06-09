@@ -21,7 +21,7 @@ brokerIp="http://180.179.214.211:8070"
 def test_getSubscription1():
         #update request to create entity at broker
         url=brokerIp+"/ngsi10/updateContext"
-        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' ,'Content-Type':'application/json'}
+        headers={'Content-Type':'application/json'}
         r=requests.post(url,data=json.dumps(datav2.subdata1),headers=headers)
         print(r.status_code)
         print(r.content)
@@ -45,7 +45,7 @@ def test_getSubscription1():
         print(r.content)
         
         #validation based on subscriptionId
-        url="http://localhost:8888/validateNotification"
+        url="http://180.179.214.211:8888/validateNotification"
         r=requests.post(url,json={"subscriptionId" : sid})
         print(r.content)
         assert r.status_code == 200
@@ -58,7 +58,7 @@ def test_getSubscription1():
 def test_getsubscription2():
         #update request to create entity at broker
         url=brokerIp+"/ngsi10/updateContext"
-        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' ,'Content-Type':'application/json'}
+        headers={'Content-Type':'application/json'}
         r=requests.post(url,data=json.dumps(datav2.subdata4),headers=headers)
         print(r.status_code)
         print(r.content)
@@ -82,7 +82,7 @@ def test_getsubscription2():
         print(r.content)
         
         #vaidation based on subscriptionId
-        url="http://localhost:8888/validateNotification"
+        url="http://180.179.214.211:8888/validateNotification"
         r=requests.post(url,json={"subscriptionId" : sid})
         print(r.content)
         assert r.status_code == 200
@@ -94,7 +94,7 @@ def test_getsubscription2():
 def test_getsubscription3():
         #update request to create entity at broker
         url=brokerIp+"/ngsi10/updateContext"
-        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' ,'Content-Type':'application/json'}
+        headers={'Content-Type':'application/json'}
         r=requests.post(url,data=json.dumps(datav2.subdata7),headers=headers)
         print(r.status_code)
         print(r.content)
