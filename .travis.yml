@@ -20,7 +20,7 @@ before_script:
     - go build serve.go
        
 script:
-    - cd script
+    - cd v2
     - pytest -v -s 
     
 after_script:
