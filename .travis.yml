@@ -33,7 +33,7 @@ script:
     - sudo lsof -i -P -n | grep LISTEN
     - ip addr show
     - hostname 
-    - telent 127.0.0.1 8070
+    - telnet 127.0.0.1 8070
     - curl http://127.0.0.1:8070/v2/entities
       
 after_script:
