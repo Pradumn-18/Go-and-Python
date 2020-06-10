@@ -11,7 +11,7 @@ import datav2
 
 
 # change it by broker ip and port
-brokerIp="http://localhost:8070"
+brokerIp="http://0.0.0.0:8070"
 
 
 # testCase 1
@@ -45,9 +45,9 @@ def test_getSubscription1():
         print(r.content)
         
         #validation based on subscriptionId
-        #url="http://180.179.214.211:8888/validateNotification"
-        #r=requests.post(url,json={"subscriptionId" : sid})
-        #print(r.content)
+        url="http://180.179.214.211:8888/validateNotification"
+        r=requests.post(url,json={"subscriptionId" : sid})
+        print(r.content)
         assert r.status_code == 200
 
 
@@ -82,9 +82,9 @@ def test_getsubscription2():
         print(r.content)
         
         #vaidation based on subscriptionId
-        #url="http://180.179.214.211:8888/validateNotification"
-        #r=requests.post(url,json={"subscriptionId" : sid})
-        #print(r.content)
+        url="http://180.179.214.211:8888/validateNotification"
+        r=requests.post(url,json={"subscriptionId" : sid})
+        print(r.content)
         assert r.status_code == 200
 
 # testCase 3
