@@ -9,6 +9,15 @@ sudo docker-compose up -d
 
 sleep 30
 
+sudo docker ps -a 
+
+curl http://localhost:8080
+curl http://127.0.0.1:8080
+curl http://0.0.0.0:8080
+curl http://localhost:8070/v2/entities
+curl http://127.0.0.1:8070/v2/entities
+curl http://0.0.0.0:8070/v2/entities
+
 cd v2
 pytest -s -v
 
