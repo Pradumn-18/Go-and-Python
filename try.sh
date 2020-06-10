@@ -5,13 +5,11 @@ wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/
 
 sudo docker-compose pull
 
-sudo docker-compose up -d
+sudo docker-compose up 
 
 sleep 30
 
 sudo docker ps -a 
-
-sudo docker logs fogflow/broker:3.0
 
 cd v2
 pytest -s -v
