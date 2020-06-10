@@ -6,7 +6,6 @@ sudo docker pull rabbitmq:3
 sudo docker pull fogflow/discovery:3.0
 sudo docker pull fogflow/broker:3.0
 
-sudo docker run nginx:latest
 sudo docker run rabbitmq:3
 sudo docker run fogflow/discovery:3.0
 sudo docker run fogflow/broker:3.0
