@@ -1,13 +1,15 @@
-wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/docker-compose.yml
 wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/config.json
 wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/nginx.conf
-wget https://raw.githubusercontent.com/smartfog/fogflow/master/docker/core/http/metricbeat.docker.yml
 
-sudo docker-compose pull
+sudo docker pull nginx:latest
+sudo docker pull rabbitmq:3
+sudo docker pull fogflow/discovery:3.0
+sudo docker pull fogflow/broker:3.0
 
-sudo docker-compose up 
-
-sleep 30
+sudo docker run nginx:latest
+sudo docker run rabbitmq:3
+sudo docker run fogflow/discovery:3.0
+sudo docker run fogflow/broker:3.0
 
 sudo docker ps -a 
 
