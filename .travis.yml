@@ -23,7 +23,7 @@ before_script:
     - go build serve.go
        
 script:
-    - sh try2.sh
+    - sh try.sh
     
 after_script:
     
