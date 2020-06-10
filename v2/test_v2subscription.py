@@ -14,6 +14,15 @@ import datav2
 brokerIp="http://0.0.0.0:8070"
 
 
+#testCase 0
+'''
+  Normal request
+'''
+def test_getSubscription0():
+        r=requests.get("http://0.0.0.0:8070/v2/entities")
+        print(r.status_code)
+        assert r.status_code == 200
+  
 # testCase 1
 '''
   Testing  subscription with attributes and using ID
