@@ -11,12 +11,7 @@ sleep 30
 
 sudo docker ps -a 
 
-curl http://localhost:8080
-curl http://127.0.0.1:8080
-curl http://0.0.0.0:8080
-curl http://localhost:8070/v2/entities
-curl http://127.0.0.1:8070/v2/entities
-curl http://0.0.0.0:8070/v2/entities
+sudo docker logs fogflow/broker:3.0
 
 cd v2
 pytest -s -v
