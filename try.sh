@@ -11,22 +11,12 @@ sudo docker pull fogflow/worker
 sudo docker pull fogflow/master
 
 sudo docker run -d nginx:latest
-sleep 30
 sudo docker run -d rabbitmq:3
-sleep 30
 sudo docker run -d fogflow/iotajson-mongo
-sleep 30
 sudo docker run -d fogflow/master
-sleep 30
 sudo docker run -d fogflow/worker
-sleep 30
 sudo docker run -d fogflow/discovery:3.0
-sleep 30
 sudo docker run -d fogflow/broker:3.0
-sleep 30
-
-
-
 
 sudo docker ps -a 
 
