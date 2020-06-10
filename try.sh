@@ -6,13 +6,19 @@ sudo docker pull rabbitmq:3
 sudo docker pull fogflow/discovery:3.0
 sudo docker pull fogflow/broker:3.0
 
-sudo docker run fogflow/discovery:3.0 -c "/home/travis/gopath/src/github.com/Pradumn-18/Go-and-Python/config.json"
-sudo docker run -p 8070:8070 fogflow/broker:3.0 -c "/home/travis/gopath/src/github.com/Pradumn-18/Go-and-Python/config.json"
+sudo docker run -d nginx:latest
+sudo docker run -d rabbitmq:3
+sudo docker run -d fogflow/discovery:3.0
+sudo docker run -d fogflow/broker:3.0
 
 sudo docker ps -a 
 
 cd v2
 pytest -s -v
 
-sudo docker-compose down
+sudo docker stop -d nginx:latest
+sudo docker stop -d rabbitmq:3
+sudo docker stop -d fogflow/discovery:3.0
+sudo docker stop -d fogflow/broker:3.0
+
 
