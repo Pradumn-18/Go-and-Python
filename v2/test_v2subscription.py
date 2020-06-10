@@ -20,12 +20,22 @@ brokerIp="http://0.0.0.0:8070"
 '''
 def test_getSubscription1():
         #update request to create entity at broker
-        url=brokerIp+"/ngsi10/updateContext"
-        headers={'Content-Type':'application/json'}
-        r=requests.post(url,data=json.dumps(datav2.subdata1),headers=headers)
-        print(r.status_code)
-        print(r.content)
-       
+        try:
+          url=brokerIp+"/ngsi10/updateContext"
+          headers={'Content-Type':'application/json'}
+          r=requests.post(url,data=json.dumps(datav2.subdata1),headers=headers)
+          print(r.status_code)
+          print(r.content)
+        except Exception as e:
+          print("Got %s error %s, retrying" % (type(e).__name__, e))
+          time.sleep(10)
+          url=brokerIp+"/ngsi10/updateContext"
+          headers={'Content-Type':'application/json'}
+          r=requests.post(url,data=json.dumps(datav2.subdata1),headers=headers)
+          print(r.status_code)
+          print(r.content)
+          
+          
         #subsciption request in v2 format
         url=brokerIp+"/v2/subscriptions"
         headers= {'Content-Type': 'application/json'}
