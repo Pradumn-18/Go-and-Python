@@ -5,6 +5,9 @@ language: go
 go:
     - 1.13.x
 
+service:
+    - docker
+    
 install: 
     - echo "build serve"
     - sudo apt-get update
@@ -20,8 +23,7 @@ before_script:
     - go build serve.go
        
 script:
-    - cd v2
-    - pytest -v -s 
+    - sh try.sh
     
 after_script:
     
