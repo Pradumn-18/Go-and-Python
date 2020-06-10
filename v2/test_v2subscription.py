@@ -11,7 +11,7 @@ import datav2
 
 
 # change it by broker ip and port
-brokerIp="http://10.156.0.9:8070"
+brokerIp="http://127.0.0.1:8070"
 
 
 #testCase 0
@@ -19,7 +19,7 @@ brokerIp="http://10.156.0.9:8070"
   Normal request
 '''
 def test_getSubscription0():
-        r=requests.get("http://10.156.0.9:8070/v2/entities")
+        r=requests.get("http://127.0.0.1:8070/v2/entities")
         print(r.status_code)
         assert r.status_code == 200
   
