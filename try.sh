@@ -15,8 +15,8 @@ sudo docker run -d rabbitmq:3
 sudo docker run -d fogflow/iotajson-mongo
 sudo docker run -d fogflow/master
 sudo docker run -d fogflow/worker
-sudo docker run -d fogflow/discovery:3.0
-sudo docker run -d fogflow/broker:3.0
+sudo docker run -d -p 127.0.0.1:8080:8080 fogflow/discovery:3.0
+sudo docker run -d -p 127.0.0.1:8070:8070 fogflow/broker:3.0
 
 sudo docker ps -a 
 
