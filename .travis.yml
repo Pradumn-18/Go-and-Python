@@ -28,7 +28,9 @@ before_script:
     - go build serve.go
        
 script:
-    - sh try.sh
+    - screen -d -m ./serve
+    - cd script
+    - pytest -s -v
     
 after_script:
     
